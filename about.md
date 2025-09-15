@@ -11,17 +11,19 @@ Write a brief introduction about yourself here. Include:
 - Your career goals
 - Any relevant experience or projects
 
+I am a senior at Brigham Young University studying Statistics: Data Science and minoring in Mathematics. I have been 
+
 ## Education
 
-- **[Your Degree]** - [University Name], [Year]
-- **Relevant Coursework**: Statistics, Data Analysis, Programming, etc.
+- **[Bachelor of Science in Statistics]** - [Brigham Young University], [2026]
+- **Relevant Coursework**: Data Science Process • Bayesian Statistics • Probability and Inference • Statistical Modeling (Regression Analysis and Analysis of Variance) • Computational and Elementary Linear Algebra • Applied R Programming • Intro to Computer Science (Python) • Fundamentals of Mathematics • Calculus 1, 2, and 3 • How to Program (Python)
 
 ## Skills & Interests
 
 ### Technical Skills
-- **Programming**: Python
-- **Data Analysis**: Pandas, NumPy
-- **Visualization**: Matplotlib, Seaborn
+- **Programming**: Python, R, SQL
+- **Data Analysis**: Pandas, NumPy, SQL,
+- **Visualization**: Matplotlib, Seaborn, Tidyverse
 - **Machine Learning**: Scikit-learn
 - **Tools**: Jupyter Notebooks, Git/GitHub
 
