@@ -19,6 +19,7 @@ print(astronauts.head())
 # Count astronauts by spacecraft
 craft_counts = astronauts["craft"].value_counts().reset_index()
 craft_counts.columns = ["Craft", "Astronauts"]
+print(craft_counts)
 
 # Plot
 ax = craft_counts.plot(kind="bar", x="Craft", y="Astronauts", legend=False, figsize=(6,4))
