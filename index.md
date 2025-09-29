@@ -80,10 +80,11 @@ craft_counts.columns = ["Craft", "Astronauts"]
 ```
 
 Now that we have our counts, lets plot the data. The data we are working with looks like this:
-| Craft | Astronauts |
-|-------|------------|
-| ISS   | 9          |
-| Tiangong   | 3          |
+
+| Craft    | Astronauts |
+|----------|------------|
+| ISS      | 9          |
+| Tiangong | 3          |
 
 Because we’re comparing counts across spacecraft, a bar chart makes it easy to see which craft currently host the most astronauts.
 
