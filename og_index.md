@@ -1,26 +1,12 @@
 ---
-title: "Visualizing API Data in Python: A Beginner's Guide"
+title: "Welcome to My Data Science Portfolio"
 ---
 
-# Visualizing API Data in Python: A Beginner's Guide
+# Hello! I'm [Your Name] 👋
 
-Have you ever wanted to analyze live data? The way many organizations share their data is through Application Programming Interfacse, more commonly known as APIs.
+Welcome to my data science portfolio! This site shows my journey learning data science and analytics. Here you'll find projects that demonstrate what I've learned and discovered.
 
-In this tutorial, we will walk into the world of APIs by fetching real data from a public API, turning it into a tidy table with Pandas, and creating a simple chart with Matplotlib. 
-
-## Pre-reqs
-
-We will be doing all thee work for this tutorial in Python. To set up, you will need to install and import a few libraries. 
-
-First, open your terminal and makesure you have these installed:
-
-```pip install requests pandas matplotlib```
-
-## Fetching The Data
-
-## Loading in The Data
-
-## Visualizing The Data
+## 🎓 About This Portfolio
 
 This portfolio shows my work learning data science. Each project includes:
 
