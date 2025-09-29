@@ -86,4 +86,14 @@ plt.xticks(rotation=0)
 plt.tight_layout()
 plt.show()
 ```
+Your plot should look something like this:
+!(Figure_1.png)
 
+## Now What?
+
+Now you are ready to try accessing public API's on your own! Test you skills and see if you can visualize API data. 
+
+Some other public APIs you may want to try for practice:
+* Pokemon API ```https://pokeapi.co/api/v2/pokemon?limit=10```
+* Exchange Rates API ```https://api.exchangerate.host/latest?base=USD```
+* Covid 19 API ```https://api.covid19api.com/summary```
