@@ -8,6 +8,12 @@ Have you ever wanted to analyze live data? The way many organizations share thei
 
 In this tutorial, we will walk into the world of APIs by fetching real data from a public API, turning it into a tidy table with Pandas, and creating a simple chart with Matplotlib. 
 
+More specifically, we are going to use the [Open Notify API](http://api.open-notify.org/astros.json) to:
+    - Fetch live JSON data about astronauts currently in space.
+    - Convert it into a Pandas DataFrame.
+    - Create a simple visualization of astronauts by spacecraft.
+This is a short, hands-on exercise you can adapt to almost any API.
+
 ## Pre-reqs
 
 We will be doing all thee work for this tutorial in Python. To set up, you will need to install and import a few libraries. 
@@ -16,7 +22,28 @@ First, open your terminal and makesure you have these installed:
 
 ```pip install requests pandas matplotlib```
 
+In Python, import the libraries needed for the tutorial. We’ll use ```requests``` to call the API, ```pandas``` for data wrangling, and ```matplotlib``` for plotting.
+
+```
+import requests
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+```
+
 ## Fetching The Data
+
+Now we will access the actual API to fetch astronaut data. This API returns JSON with three keys: "people","number", and "message".
+
+```
+url = "http://api.open-notify.org/astros.json"
+response = requests.get(url, timeout=10)
+data = response.json()
+
+print(data.keys())
+print(data["number"], "people are in space right now.")
+```
+
 
 ## Loading in The Data
 
