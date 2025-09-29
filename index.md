@@ -9,9 +9,9 @@ Have you ever wanted to analyze live data? The way many organizations share thei
 In this tutorial, we will walk into the world of APIs by fetching real data from a public API, turning it into a tidy table with Pandas, and creating a simple chart with Matplotlib. 
 
 More specifically, we are going to use the [Open Notify API](http://api.open-notify.org/astros.json) to:
-    - Fetch live JSON data about astronauts currently in space.
-    - Convert it into a Pandas DataFrame.
-    - Create a simple visualization of astronauts by spacecraft.
+* Fetch live JSON data about astronauts currently in space.
+* Convert it into a Pandas DataFrame.
+* Create a simple visualization of astronauts by spacecraft.
 This is a short, hands-on exercise you can adapt to almost any API.
 
 ## Pre-reqs
@@ -33,7 +33,7 @@ import numpy as np
 
 ## Fetching The Data
 
-Now we will access the actual API to fetch astronaut data. This API returns JSON with three keys: "people","number", and "message".
+Now we will access the actual API to fetch astronaut data. This API returns JSON with three keys: ```"people"```,```"number"```, and ```"message"```.
 
 ```
 url = "http://api.open-notify.org/astros.json"
@@ -44,47 +44,46 @@ print(data.keys())
 print(data["number"], "people are in space right now.")
 ```
 
+An example of how your output should look is the following:
+```
+dict_keys(['people', 'number', 'message'])
+10 people are in space right now.
+```
 
 ## Loading in The Data
 
+Now that we have the data from the API, we will be converting it to a ```Pandas``` DataFrame. 
+In our example, the ```"people"``` key contains a list of dictionaries. This works perfectly for a Pandas DataFrame.
+
+```
+astronauts = pd.DataFrame(data["people"])
+print(astronauts.head())
+```
+
+Your output should look something like this:
+```
+           craft              name
+0             ISS   Sergey Prokopyev
+1             ISS     Dmitry Petelin
+2             ISS     Frank Rubio
+```
+
 ## Visualizing The Data
 
-This portfolio shows my work learning data science. Each project includes:
+Now that we have the data saved as a DataFrame, we will be using it to make a basic chart. 
 
-- My code with documentation
-- Visualizations I created
-- What I learned and discovered
+For our example, let's group by the ```"craft"``` column and plot the counts.
+```
+# Count astronauts by spacecraft
+craft_counts = astronauts["craft"].value_counts().reset_index()
+craft_counts.columns = ["Craft", "Astronauts"]
 
-I built this site using [Quarto](https://quarto.org/) and host it on [GitHub Pages](https://pages.github.com/).
+# Plot
+ax = craft_counts.plot(kind="bar", x="Craft", y="Astronauts", legend=False, figsize=(6,4))
+ax.set_title("Astronauts in Space by Spacecraft")
+ax.set_ylabel("Number of Astronauts")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.show()
+```
 
-## 🛠️ Skills I'm Learning
-
-- **Programming**: Python, Pandas for data analysis
-- **Visualization**: Creating charts with Matplotlib and Seaborn
-- **Data Collection**: Getting data from files, websites, and APIs
-- **Analysis**: Finding patterns and answering questions with data
-
-## 📈 My Projects
-
-::: {.grid}
-
-::: {.g-col-6}
-### [Data Exploration Project](projects/eda.qmd)
-Learn how I explore datasets to find interesting patterns and answer questions.
-:::
-
-::: {.g-col-6}
-### [Data Collection Project](projects/data-acquisition.qmd)
-See how I gather data from different sources and prepare it for analysis.
-:::
-
-::: {.g-col-6}
-### [Final Project](projects/final-project.qmd)
-See how I tackle a data science project beginning to end.
-:::
-
-:::
-
----
-
-*Thanks for visiting! Feel free to explore my projects and see what I'm learning.*
