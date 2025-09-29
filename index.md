@@ -73,7 +73,7 @@ Your output should look something like this:
 Now that we have the data saved as a DataFrame, we will be using it to make a basic chart. 
 
 For our example, let's group by the ```"craft"``` column and plot the counts.
-```
+```python
 # Count astronauts by spacecraft
 craft_counts = astronauts["craft"].value_counts().reset_index()
 craft_counts.columns = ["Craft", "Astronauts"]
