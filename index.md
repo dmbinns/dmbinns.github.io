@@ -87,7 +87,7 @@ plt.tight_layout()
 plt.show()
 ```
 Your plot should look something like this:
-!(Figure_1.png)
+![Chart of astronaut data](Figure_1.png)
 
 ## Now What?
 
