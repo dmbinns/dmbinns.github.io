@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to My Data Science Portfolio – Your Name - Data Science Portfolio</title>
+<title>Visualizing API Data in Python: A Beginner’s Guide – Your Name - Data Science Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,14 +67,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b3aed8deb8408878d0e4e165d993d59e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-029b10fc0dc652dab2ec1ac156c1a037.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,6 +115,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Your Name - Data Science Portfolio</span>
     </a>
@@ -184,12 +187,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hello-im-your-name" id="toc-hello-im-your-name" class="nav-link active" data-scroll-target="#hello-im-your-name">Hello! I’m [Your Name] 👋</a>
-  <ul class="collapse">
-  <li><a href="#about-this-portfolio" id="toc-about-this-portfolio" class="nav-link" data-scroll-target="#about-this-portfolio">🎓 About This Portfolio</a></li>
-  <li><a href="#skills-im-learning" id="toc-skills-im-learning" class="nav-link" data-scroll-target="#skills-im-learning">🛠️ Skills I’m Learning</a></li>
-  <li><a href="#my-projects" id="toc-my-projects" class="nav-link" data-scroll-target="#my-projects">📈 My Projects</a></li>
-  </ul></li>
+  <li><a href="#pre-reqs" id="toc-pre-reqs" class="nav-link active" data-scroll-target="#pre-reqs">Pre-reqs</a></li>
+  <li><a href="#fetching-the-data" id="toc-fetching-the-data" class="nav-link" data-scroll-target="#fetching-the-data">Fetching The Data</a></li>
+  <li><a href="#loading-in-the-data" id="toc-loading-in-the-data" class="nav-link" data-scroll-target="#loading-in-the-data">Loading in The Data</a></li>
+  <li><a href="#visualizing-the-data" id="toc-visualizing-the-data" class="nav-link" data-scroll-target="#visualizing-the-data">Visualizing The Data</a></li>
+  <li><a href="#now-what" id="toc-now-what" class="nav-link" data-scroll-target="#now-what">Now What?</a></li>
   </ul>
 </nav>
     </div>
@@ -198,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Welcome to My Data Science Portfolio</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Visualizing API Data in Python: A Beginner’s Guide</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -215,51 +217,96 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="hello-im-your-name" class="level1">
-<h1>Hello! I’m [Your Name] 👋</h1>
-<p>Welcome to my data science portfolio! This site shows my journey learning data science and analytics. Here you’ll find projects that demonstrate what I’ve learned and discovered.</p>
-<section id="about-this-portfolio" class="level2">
-<h2 class="anchored" data-anchor-id="about-this-portfolio">🎓 About This Portfolio</h2>
-<p>This portfolio shows my work learning data science. Each project includes:</p>
-<ul>
-<li>My code with documentation</li>
-<li>Visualizations I created</li>
-<li>What I learned and discovered</li>
-</ul>
-<p>I built this site using <a href="https://quarto.org/">Quarto</a> and host it on <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p>This is Daniela # Visualizing API Data in Python: A Beginner’s Guide</p>
+<p>Have you ever wanted to analyze live data? The way many organizations share their data is through <strong>Application Programming Interfaces</strong>, more commonly known as <strong>APIs</strong>. Visualizing API data helps us see trends and patterns in real time, instead of digging through raw text or tables.</p>
+<p>In this tutorial, we will step into the world of APIs by fetching real data from a public API, turning it into a tidy table with <code>Pandas</code>, and creating a simple chart with Matplotlib.</p>
+<p>More specifically, we are going to use the <a href="http://api.open-notify.org/astros.json">Open Notify API</a> to: * Fetch live JSON data about astronauts currently in space. * Convert it into a <code>Pandas</code> DataFrame. * Create a simple visualization of astronauts by spacecraft. This is a short, hands-on exercise you can adapt to almost any API.</p>
+<section id="pre-reqs" class="level2">
+<h2 class="anchored" data-anchor-id="pre-reqs">Pre-reqs</h2>
+<p>We will be doing all the work for this tutorial in Python. To set up, you will need to install and import a few libraries.</p>
+<p>First, open your terminal and make sure you have these installed:</p>
+<p><code>bash pip install requests pandas matplotlib</code></p>
+<p>In Python, import the libraries needed for the tutorial. We’ll use <code>requests</code> to call the API, <code>pandas</code> for data wrangling, and <code>matplotlib</code> for plotting.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="skills-im-learning" class="level2">
-<h2 class="anchored" data-anchor-id="skills-im-learning">🛠️ Skills I’m Learning</h2>
-<ul>
-<li><strong>Programming</strong>: Python, Pandas for data analysis</li>
-<li><strong>Visualization</strong>: Creating charts with Matplotlib and Seaborn</li>
-<li><strong>Data Collection</strong>: Getting data from files, websites, and APIs</li>
-<li><strong>Analysis</strong>: Finding patterns and answering questions with data</li>
-</ul>
+<section id="fetching-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="fetching-the-data">Fetching The Data</h2>
+<p>Now we will access the actual API to fetch astronaut data. This API returns JSON with three keys: <code>"people"</code>,<code>"number"</code>, and <code>"message"</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://api.open-notify.org/astros.json"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, timeout<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.keys())</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">"number"</span>], <span class="st">"people are in space right now."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>An example of how your output should look is the following:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dict_keys([<span class="st">'people'</span>, <span class="st">'number'</span>, <span class="st">'message'</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> people are <span class="kw">in</span> space right now.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="my-projects" class="level2">
-<h2 class="anchored" data-anchor-id="my-projects">📈 My Projects</h2>
-<div class="grid">
-<section id="data-exploration-project" class="level3 g-col-6">
-<h3 class="anchored" data-anchor-id="data-exploration-project"><a href="./projects/eda.html">Data Exploration Project</a></h3>
-<p>Learn how I explore datasets to find interesting patterns and answer questions.</p>
+<section id="loading-in-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="loading-in-the-data">Loading in The Data</h2>
+<p>Now that we have the data from the API, we will be converting it to a <code>Pandas</code> DataFrame. In our example, the <code>"people"</code> key contains a list of dictionaries. This works perfectly for a <code>Pandas</code> DataFrame.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>astronauts <span class="op">=</span> pd.DataFrame(data[<span class="st">"people"</span>])</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(astronauts.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Your output should look something like this:</p>
+<pre><code>           craft              name
+0             ISS   Sergey Prokopyev
+1             ISS     Dmitry Petelin
+2             ISS     Frank Rubio</code></pre>
 </section>
-<section id="data-collection-project" class="level3 g-col-6">
-<h3 class="anchored" data-anchor-id="data-collection-project"><a href="./projects/data-acquisition.html">Data Collection Project</a></h3>
-<p>See how I gather data from different sources and prepare it for analysis.</p>
-</section>
-<section id="final-project" class="level3 g-col-6">
-<h3 class="anchored" data-anchor-id="final-project"><a href="./projects/final-project.html">Final Project</a></h3>
-<p>See how I tackle a data science project beginning to end.</p>
-</section>
+<section id="visualizing-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-the-data">Visualizing The Data</h2>
+<p>Now that we have the data saved as a DataFrame, we will be using it to make a basic chart.</p>
+<p>For our example, let’s group by the <code>"craft"</code> column and plot the counts.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count astronauts by spacecraft</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>craft_counts <span class="op">=</span> astronauts[<span class="st">"craft"</span>].value_counts().reset_index()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>craft_counts.columns <span class="op">=</span> [<span class="st">"Craft"</span>, <span class="st">"Astronauts"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now that we have our counts, let’s plot the data. The data we are working with looks like this:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Craft</th>
+<th>Astronauts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ISS</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>Tiangong</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Because we’re comparing counts across spacecraft, a bar chart makes it easy to see which craft currently host the most astronauts.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> craft_counts.plot(kind<span class="op">=</span><span class="st">"bar"</span>, x<span class="op">=</span><span class="st">"Craft"</span>, y<span class="op">=</span><span class="st">"Astronauts"</span>, legend<span class="op">=</span><span class="va">False</span>, figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Astronauts in Space by Spacecraft"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Number of Astronauts"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Your plot should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figure_1.png" class="img-fluid figure-img"></p>
+<figcaption>Bar chart showing astronauts per spacecraft</figcaption>
+</figure>
 </div>
-<hr>
-<p><em>Thanks for visiting! Feel free to explore my projects and see what I’m learning.</em></p>
+</section>
+<section id="now-what" class="level2">
+<h2 class="anchored" data-anchor-id="now-what">Now What?</h2>
+<p>Congratulations! You have now accessed a public <strong>API</strong>, imported it as a <strong>Pandas DataFrame</strong>, and made a basic chart to visualize it using <strong>matplotlib</strong>!</p>
+<p>Now you are ready to try accessing public APIs on your own! Test your skills and see if you can visualize API data.</p>
+<p>Pick one API from the list below and try to repeat the same workflow: fetch the data, load it into a DataFrame, and build a simple chart. Even a tiny change will give you practice adapting to different data formats: * <a href="https://pokeapi.co/api/v2/pokemon?limit=10">Pokémon API</a> * <a href="https://api.exchangerate.host/latest?base=USD">Exchange Rates API</a> * <a href="https://api.covid19api.com/summary">COVID-19 API</a></p>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -314,13 +361,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -713,55 +761,120 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Welcome to My Data Science Portfolio"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Hello! I'm [Your Name] 👋</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Welcome to my data science portfolio! This site shows my journey learning data science and analytics. Here you'll find projects that demonstrate what I've learned and discovered.</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎓 About This Portfolio</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>This portfolio shows my work learning data science. Each project includes:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>My code with documentation</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Visualizations I created</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What I learned and discovered</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>I built this site using <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span> and host it on <span class="co">[</span><span class="ot">GitHub Pages</span><span class="co">](https://pages.github.com/)</span>.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🛠️ Skills I'm Learning</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Programming**: Python, Pandas for data analysis</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Visualization**: Creating charts with Matplotlib and Seaborn</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data Collection**: Getting data from files, websites, and APIs</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Analysis**: Finding patterns and answering questions with data</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📈 My Projects</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>::: {.grid}</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>::: {.g-col-6}</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Data Exploration Project](projects/eda.qmd)</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>Learn how I explore datasets to find interesting patterns and answer questions.</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>::: {.g-col-6}</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Data Collection Project](projects/data-acquisition.qmd)</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>See how I gather data from different sources and prepare it for analysis.</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>::: {.g-col-6}</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Final Project](projects/final-project.qmd)</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>See how I tackle a data science project beginning to end.</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>*Thanks for visiting! Feel free to explore my projects and see what I'm learning.*</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Visualizing API Data in Python: A Beginner's Guide"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>This is Daniela </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Visualizing API Data in Python: A Beginner's Guide</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>Have you ever wanted to analyze live data? The way many organizations share their data is through **Application Programming Interfaces**, more commonly known as **APIs**. Visualizing API data helps us see trends and patterns in real time, instead of digging through raw text or tables.</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>In this tutorial, we will step into the world of APIs by fetching real data from a public API, turning it into a tidy table with ```Pandas```, and creating a simple chart with Matplotlib. </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>More specifically, we are going to use the <span class="co">[</span><span class="ot">Open Notify API</span><span class="co">](http://api.open-notify.org/astros.json)</span> to:</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Fetch live JSON data about astronauts currently in space.</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Convert it into a ```Pandas``` DataFrame.</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Create a simple visualization of astronauts by spacecraft.</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>This is a short, hands-on exercise you can adapt to almost any API.</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pre-reqs</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>We will be doing all the work for this tutorial in Python. To set up, you will need to install and import a few libraries. </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>First, open your terminal and make sure you have these installed:</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>```bash pip install requests pandas matplotlib```</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>In Python, import the libraries needed for the tutorial. We’ll use ```requests``` to call the API, ```pandas``` for data wrangling, and ```matplotlib``` for plotting.</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fetching The Data</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>Now we will access the actual API to fetch astronaut data. This API returns JSON with three keys: ```"people"<span class="in">```,```</span>"number"```, and ```"message"```.</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://api.open-notify.org/astros.json"</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, timeout<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.keys())</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">"number"</span>], <span class="st">"people are in space right now."</span>)</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>An example of how your output should look is the following:</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>dict_keys([<span class="st">'people'</span>, <span class="st">'number'</span>, <span class="st">'message'</span>])</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> people are <span class="kw">in</span> space right now.</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Loading in The Data</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>Now that we have the data from the API, we will be converting it to a ```Pandas``` DataFrame. </span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>In our example, the ```"people"``` key contains a list of dictionaries. This works perfectly for a ```Pandas``` DataFrame.</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>astronauts <span class="op">=</span> pd.DataFrame(data[<span class="st">"people"</span>])</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(astronauts.head())</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>Your output should look something like this:</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="in">           craft              name</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="in">0             ISS   Sergey Prokopyev</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="in">1             ISS     Dmitry Petelin</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="in">2             ISS     Frank Rubio</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualizing The Data</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>Now that we have the data saved as a DataFrame, we will be using it to make a basic chart. </span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>For our example, let's group by the ```"craft"``` column and plot the counts.</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Count astronauts by spacecraft</span></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>craft_counts <span class="op">=</span> astronauts[<span class="st">"craft"</span>].value_counts().reset_index()</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>craft_counts.columns <span class="op">=</span> [<span class="st">"Craft"</span>, <span class="st">"Astronauts"</span>]</span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>Now that we have our counts, let's plot the data. The data we are working with looks like this:</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Craft    <span class="pp">|</span> Astronauts <span class="pp">|</span></span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|------------|</span></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ISS      <span class="pp">|</span> 9          <span class="pp">|</span></span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Tiangong <span class="pp">|</span> 3          <span class="pp">|</span></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>Because we’re comparing counts across spacecraft, a bar chart makes it easy to see which craft currently host the most astronauts.</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> craft_counts.plot(kind<span class="op">=</span><span class="st">"bar"</span>, x<span class="op">=</span><span class="st">"Craft"</span>, y<span class="op">=</span><span class="st">"Astronauts"</span>, legend<span class="op">=</span><span class="va">False</span>, figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Astronauts in Space by Spacecraft"</span>)</span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Number of Astronauts"</span>)</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>Your plot should look something like this:</span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a><span class="al">![Bar chart showing astronauts per spacecraft](Figure_1.png)</span></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## Now What?</span></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>Congratulations! You have now accessed a public **API**, imported it as a **Pandas DataFrame**, and made a basic chart to visualize it using **matplotlib**!</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>Now you are ready to try accessing public APIs on your own! Test your skills and see if you can visualize API data. </span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>Pick one API from the list below and try to repeat the same workflow: fetch the data, load it into a DataFrame, and build a simple chart. Even a tiny change will give you practice adapting to different data formats:</span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Pokémon API</span><span class="co">](https://pokeapi.co/api/v2/pokemon?limit=10)</span></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Exchange Rates API</span><span class="co">](https://api.exchangerate.host/latest?base=USD)</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">COVID-19 API</span><span class="co">](https://api.covid19api.com/summary)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

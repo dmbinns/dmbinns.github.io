@@ -2,6 +2,7 @@
 title: "Visualizing API Data in Python: A Beginner's Guide"
 ---
 
+This is Daniela 
 # Visualizing API Data in Python: A Beginner's Guide
 
 Have you ever wanted to analyze live data? The way many organizations share their data is through **Application Programming Interfaces**, more commonly known as **APIs**. Visualizing API data helps us see trends and patterns in real time, instead of digging through raw text or tables.

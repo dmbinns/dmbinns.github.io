@@ -2,59 +2,53 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome to My Data Science Portfolio",
+    "title": "Visualizing API Data in Python: A Beginner’s Guide",
     "section": "",
-    "text": "Welcome to my data science portfolio! This site shows my journey learning data science and analytics. Here you’ll find projects that demonstrate what I’ve learned and discovered.\n\n\nThis portfolio shows my work learning data science. Each project includes:\n\nMy code with documentation\nVisualizations I created\nWhat I learned and discovered\n\nI built this site using Quarto and host it on GitHub Pages.\n\n\n\n\nProgramming: Python, Pandas for data analysis\nVisualization: Creating charts with Matplotlib and Seaborn\nData Collection: Getting data from files, websites, and APIs\nAnalysis: Finding patterns and answering questions with data\n\n\n\n\n\n\n\nLearn how I explore datasets to find interesting patterns and answer questions.\n\n\n\nSee how I gather data from different sources and prepare it for analysis.\n\n\n\nSee how I tackle a data science project beginning to end.\n\n\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning."
+    "text": "This is Daniela # Visualizing API Data in Python: A Beginner’s Guide\nHave you ever wanted to analyze live data? The way many organizations share their data is through Application Programming Interfaces, more commonly known as APIs. Visualizing API data helps us see trends and patterns in real time, instead of digging through raw text or tables.\nIn this tutorial, we will step into the world of APIs by fetching real data from a public API, turning it into a tidy table with Pandas, and creating a simple chart with Matplotlib.\nMore specifically, we are going to use the Open Notify API to: * Fetch live JSON data about astronauts currently in space. * Convert it into a Pandas DataFrame. * Create a simple visualization of astronauts by spacecraft. This is a short, hands-on exercise you can adapt to almost any API."
   },
   {
-    "objectID": "index.html#about-this-portfolio",
-    "href": "index.html#about-this-portfolio",
-    "title": "Welcome to My Data Science Portfolio",
-    "section": "",
-    "text": "This portfolio shows my work learning data science. Each project includes:\n\nMy code with documentation\nVisualizations I created\nWhat I learned and discovered\n\nI built this site using Quarto and host it on GitHub Pages."
+    "objectID": "index.html#pre-reqs",
+    "href": "index.html#pre-reqs",
+    "title": "Visualizing API Data in Python: A Beginner’s Guide",
+    "section": "Pre-reqs",
+    "text": "Pre-reqs\nWe will be doing all the work for this tutorial in Python. To set up, you will need to install and import a few libraries.\nFirst, open your terminal and make sure you have these installed:\nbash pip install requests pandas matplotlib\nIn Python, import the libraries needed for the tutorial. We’ll use requests to call the API, pandas for data wrangling, and matplotlib for plotting.\nimport requests\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport numpy as np"
   },
   {
-    "objectID": "index.html#skills-im-learning",
-    "href": "index.html#skills-im-learning",
-    "title": "Welcome to My Data Science Portfolio",
-    "section": "",
-    "text": "Programming: Python, Pandas for data analysis\nVisualization: Creating charts with Matplotlib and Seaborn\nData Collection: Getting data from files, websites, and APIs\nAnalysis: Finding patterns and answering questions with data"
+    "objectID": "index.html#fetching-the-data",
+    "href": "index.html#fetching-the-data",
+    "title": "Visualizing API Data in Python: A Beginner’s Guide",
+    "section": "Fetching The Data",
+    "text": "Fetching The Data\nNow we will access the actual API to fetch astronaut data. This API returns JSON with three keys: \"people\",\"number\", and \"message\".\nurl = \"http://api.open-notify.org/astros.json\"\nresponse = requests.get(url, timeout=10)\ndata = response.json()\n\nprint(data.keys())\nprint(data[\"number\"], \"people are in space right now.\")\nAn example of how your output should look is the following:\ndict_keys(['people', 'number', 'message'])\n10 people are in space right now."
   },
   {
-    "objectID": "index.html#my-projects",
-    "href": "index.html#my-projects",
-    "title": "Welcome to My Data Science Portfolio",
-    "section": "",
-    "text": "Learn how I explore datasets to find interesting patterns and answer questions.\n\n\n\nSee how I gather data from different sources and prepare it for analysis.\n\n\n\nSee how I tackle a data science project beginning to end.\n\n\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning."
+    "objectID": "index.html#loading-in-the-data",
+    "href": "index.html#loading-in-the-data",
+    "title": "Visualizing API Data in Python: A Beginner’s Guide",
+    "section": "Loading in The Data",
+    "text": "Loading in The Data\nNow that we have the data from the API, we will be converting it to a Pandas DataFrame. In our example, the \"people\" key contains a list of dictionaries. This works perfectly for a Pandas DataFrame.\nastronauts = pd.DataFrame(data[\"people\"])\nprint(astronauts.head())\nYour output should look something like this:\n           craft              name\n0             ISS   Sergey Prokopyev\n1             ISS     Dmitry Petelin\n2             ISS     Frank Rubio"
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects Overview",
-    "section": "",
-    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
-    "crumbs": [
-      "Projects Overview"
-    ]
+    "objectID": "index.html#visualizing-the-data",
+    "href": "index.html#visualizing-the-data",
+    "title": "Visualizing API Data in Python: A Beginner’s Guide",
+    "section": "Visualizing The Data",
+    "text": "Visualizing The Data\nNow that we have the data saved as a DataFrame, we will be using it to make a basic chart.\nFor our example, let’s group by the \"craft\" column and plot the counts.\n# Count astronauts by spacecraft\ncraft_counts = astronauts[\"craft\"].value_counts().reset_index()\ncraft_counts.columns = [\"Craft\", \"Astronauts\"]\nNow that we have our counts, let’s plot the data. The data we are working with looks like this:\n\n\n\nCraft\nAstronauts\n\n\n\n\nISS\n9\n\n\nTiangong\n3\n\n\n\nBecause we’re comparing counts across spacecraft, a bar chart makes it easy to see which craft currently host the most astronauts.\n# Plot\nax = craft_counts.plot(kind=\"bar\", x=\"Craft\", y=\"Astronauts\", legend=False, figsize=(6,4))\nax.set_title(\"Astronauts in Space by Spacecraft\")\nax.set_ylabel(\"Number of Astronauts\")\nplt.xticks(rotation=0)\nplt.tight_layout()\nplt.show()\nYour plot should look something like this:\n\n\n\nBar chart showing astronauts per spacecraft"
   },
   {
-    "objectID": "projects/index.html#all-projects",
-    "href": "projects/index.html#all-projects",
-    "title": "Projects Overview",
-    "section": "",
-    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
-    "crumbs": [
-      "Projects Overview"
-    ]
+    "objectID": "index.html#now-what",
+    "href": "index.html#now-what",
+    "title": "Visualizing API Data in Python: A Beginner’s Guide",
+    "section": "Now What?",
+    "text": "Now What?\nCongratulations! You have now accessed a public API, imported it as a Pandas DataFrame, and made a basic chart to visualize it using matplotlib!\nNow you are ready to try accessing public APIs on your own! Test your skills and see if you can visualize API data.\nPick one API from the list below and try to repeat the same workflow: fetch the data, load it into a DataFrame, and build a simple chart. Even a tiny change will give you practice adapting to different data formats: * Pokémon API * Exchange Rates API * COVID-19 API"
   },
   {
-    "objectID": "projects/eda.html",
-    "href": "projects/eda.html",
-    "title": "EDA Project",
+    "objectID": "projects/data-acquisition.html",
+    "href": "projects/data-acquisition.html",
+    "title": "Data Acquisition Project",
     "section": "",
     "text": "This is coming down the pipeline. Check again later.",
     "crumbs": [
-      "EDA Project"
+      "Data Acquisition Project"
     ]
   },
   {
@@ -62,28 +56,28 @@
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "Write a brief introduction about yourself here. Include:\n\nYour academic background\nYour interest in data science\nYour career goals\nAny relevant experience or projects"
+    "text": "Write a brief introduction about yourself here. Include:\n\nYour academic background\nYour interest in data science\nYour career goals\nAny relevant experience or projects\n\nI am a senior at Brigham Young University studying Statistics: Data Science and minoring in Mathematics. I have been"
   },
   {
     "objectID": "about.html#background",
     "href": "about.html#background",
     "title": "About Me",
     "section": "",
-    "text": "Write a brief introduction about yourself here. Include:\n\nYour academic background\nYour interest in data science\nYour career goals\nAny relevant experience or projects"
+    "text": "Write a brief introduction about yourself here. Include:\n\nYour academic background\nYour interest in data science\nYour career goals\nAny relevant experience or projects\n\nI am a senior at Brigham Young University studying Statistics: Data Science and minoring in Mathematics. I have been"
   },
   {
     "objectID": "about.html#education",
     "href": "about.html#education",
     "title": "About Me",
     "section": "Education",
-    "text": "Education\n\n[Your Degree] - [University Name], [Year]\nRelevant Coursework: Statistics, Data Analysis, Programming, etc."
+    "text": "Education\n\n[Bachelor of Science in Statistics] - [Brigham Young University], [2026]\nRelevant Coursework: Data Science Process • Bayesian Statistics • Probability and Inference • Statistical Modeling (Regression Analysis and Analysis of Variance) • Computational and Elementary Linear Algebra • Applied R Programming • Intro to Computer Science (Python) • Fundamentals of Mathematics • Calculus 1, 2, and 3 • How to Program (Python)"
   },
   {
     "objectID": "about.html#skills-interests",
     "href": "about.html#skills-interests",
     "title": "About Me",
     "section": "Skills & Interests",
-    "text": "Skills & Interests\n\nTechnical Skills\n\nProgramming: Python\nData Analysis: Pandas, NumPy\nVisualization: Matplotlib, Seaborn\nMachine Learning: Scikit-learn\nTools: Jupyter Notebooks, Git/GitHub\n\n\n\nAreas of Interest\n\n[Your specific interests, e.g., environmental data, healthcare analytics, finance, etc.]\n[Other areas you’re curious about]"
+    "text": "Skills & Interests\n\nTechnical Skills\n\nProgramming: Python, R, SQL\nData Analysis: Pandas, NumPy, SQL,\nVisualization: Matplotlib, Seaborn, Tidyverse\nMachine Learning: Scikit-learn\nTools: Jupyter Notebooks, Git/GitHub\n\n\n\nAreas of Interest\n\n[Your specific interests, e.g., environmental data, healthcare analytics, finance, etc.]\n[Other areas you’re curious about]"
   },
   {
     "objectID": "about.html#goals",
@@ -98,25 +92,5 @@
     "title": "About Me",
     "section": "Contact",
     "text": "Contact\n\nEmail: your.email@example.com\nGitHub: github.com/your-username\nLinkedIn: linkedin.com/in/your-profile\n\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
-  },
-  {
-    "objectID": "projects/data-acquisition.html",
-    "href": "projects/data-acquisition.html",
-    "title": "Data Acquisition Project",
-    "section": "",
-    "text": "This is coming down the pipeline. Check again later.",
-    "crumbs": [
-      "Data Acquisition Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html",
-    "href": "projects/final-project.html",
-    "title": "Final Project",
-    "section": "",
-    "text": "This is coming down the pipeline. Check again later.",
-    "crumbs": [
-      "Final Project"
-    ]
   }
 ]
