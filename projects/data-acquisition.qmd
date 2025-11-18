@@ -1,11 +1,123 @@
 ---
-title: "Data Acquisition Project"
-author: "Your Name"
-date: "2025-01-01"
+title: "Exploring Latin American Restaurants with the Yelp Fusion API"
+author: "Daniela Binns"
+date: "2025-11-17"
 format:
   html:
     code-fold: true
     toc: true
 ---
 
-This is coming down the pipeline. Check again later.
+# Introduction
+
+For this project, I wanted to explore a dataset that felt relevant, modern, and fun while also tied to real decisions people make. That motivation led me to the **Yelp Fusion API**, a tool that provides programmatic access to Yelp's business listings, ratings, review counts, and more. I was particularly interested in Latin American Restaurants in the cities that are local to me, as well as in some of the larger cities across the country. 
+
+# Motivating Question
+
+**What can Yelp business data tell us about the latin american restaurant landscape and what defines the best businesses in that landscape?**
+
+For example:
+
+* Which cities have the highest rated latin american food?
+* Are higher‑priced restaurants consistently higher rated?
+* How do attributes like review count or business category vary across neighborhoods?
+
+This dataset helps us investigate these types of questions.
+
+# Ethical and Practical Considerations
+
+The Yelp Fusion API is designed for developers to access Yelp data programmatically. Because this data is provided through an official API with clear terms of use, rate limits, and guidelines it is an ethically sound source.
+
+Good data‑gathering practice included:
+
+* Registering for an official API key.
+* Respecting Yelp’s rate limits.
+* Querying only the endpoints needed (in this case, the `/businesses/search` endpoint).
+* Storing API keys securely using environment variables (not hard-coding them in scripts or repos).
+* Citing Yelp as the data source.
+
+Using an official, permissioned API avoids scraping websites directly, which is often restricted by robots.txt rules and site terms of service.
+
+# How I Gathered the Data
+
+Below is a high‑level overview of how I curated my Yelp dataset.
+
+## 1. Setup
+
+* Install the `requests` package in Python.
+* Store your API key in an environment variable (e.g., `YELP_API_KEY`).
+* Decide on a city or geographic coordinate to query.
+
+## 2. Making API Calls
+
+The Yelp Fusion API returns up to 50 businesses per request. To get more data, you can paginate using the `offset` parameter.
+
+Each query included:
+
+* Search term: "Latin American"
+* Location: City name
+* Category: Restaurant
+* Parameters: limit = 200, offset = 0, 50, 100, ...
+
+## 3. Extracting Key Fields
+
+From each business result, I kept variables such as:
+
+* `name`
+* `rating`
+* `review_count`
+* `price`
+* `categories`
+* `latitude`, `longitude`
+* `location` fields (city, zip code, etc.)
+
+## 4. Storing the Dataset
+
+Once extracted, the records were collected into a pandas DataFrame and saved as a CSV.
+
+# EDA Highlights
+
+After cleaning and combining all paginated business results, the final dataset contained:
+
+* **Total businesses:** *1895*
+* **Cities covered:** *11*
+
+## Summary Statistics
+
+* Average rating: *4.07*
+* Median review count: *110*
+* Most common price tier: *"$$"*
+* Restaurant category with the largest count: *Salvadoran*
+
+## Interesting EDA Findings
+
+### 1. Ratings vs. Price Tier
+
+Higher‑priced restaurants did tend to have slightly higher average ratings, but the spread was wider, suggesting both excellent and mediocre high‑priced places.
+
+![Graph dipicting a bar chart with 4 bars, one for each price category, and height coresponding with the average rating of each of the price groups.](images/Rating_by_price_level_chart.png)
+
+### 2. Review Count Distribution
+
+Review counts were extremely right‑skewed. A small number of restaurants had hundreds or thousands of reviews, while most had fewer than 50.
+
+![Dot plot depicting the distribution of review counts per restaurant. Heavily right skewed.](images/review_counts_distribution.png)
+
+# Resources & Further Information
+
+Here are links to key resources if you want to try this project yourself:
+
+* **Yelp Fusion API Documentation:** [Yelp API Overview](https://docs.developer.yelp.com/)
+* **Requests Library:** [Python Requests](https://requests.readthedocs.io/)
+
+# GitHub Repository
+
+You can find the full Python code for collecting and cleaning this dataset here:
+
+* **GitHub Repo:** [https://github.com/dmbinns/travel_dataset](https://github.com/dmbinns/travel_dataset)
+
+# Conclusion
+
+Working with the Yelp Fusion API proved to be a practical and exciting way to explore real‑world data. This project helped reinforce API usage, pagination logic, JSON parsing, and responsible data collection.
+
+The resulting dataset opens the door to many potential analyses and visualizations, and I would highly recommend this project to anyone looking for an engaging dataset to practice with.

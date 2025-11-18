@@ -46,9 +46,9 @@
     "href": "projects/data-acquisition.html",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "This is coming down the pipeline. Check again later.",
+    "text": "For this project, I wanted to explore a dataset that felt relevant, modern, and fun while also tied to real decisions people make. That motivation led me to the Yelp Fusion API, a tool that provides programmatic access to Yelp’s business listings, ratings, review counts, and more. I was particularly interested in Latin American Restaurants in the cities that are local to me, as well as in some of the larger cities across the country.",
     "crumbs": [
-      "Data Acquisition Project"
+      "Exploring Latin American Restaurants with the Yelp Fusion API"
     ]
   },
   {
@@ -92,5 +92,65 @@
     "title": "About Me",
     "section": "Contact",
     "text": "Contact\n\nEmail: your.email@example.com\nGitHub: github.com/your-username\nLinkedIn: linkedin.com/in/your-profile\n\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
+  },
+  {
+    "objectID": "projects/data-acquisition.html#setup",
+    "href": "projects/data-acquisition.html#setup",
+    "title": "Data Acquisition Project",
+    "section": "1. Setup",
+    "text": "1. Setup\n\nInstall the requests package in Python.\nStore your API key in an environment variable (e.g., YELP_API_KEY).\nDecide on a city or geographic coordinate to query.",
+    "crumbs": [
+      "Exploring Latin American Restaurants with the Yelp Fusion API"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#making-api-calls",
+    "href": "projects/data-acquisition.html#making-api-calls",
+    "title": "Data Acquisition Project",
+    "section": "2. Making API Calls",
+    "text": "2. Making API Calls\nThe Yelp Fusion API returns up to 50 businesses per request. To get more data, you can paginate using the offset parameter.\nEach query included:\n\nSearch term: “Latin American”\nLocation: City name\nCategory: Restaurant\nParameters: limit = 200, offset = 0, 50, 100, …",
+    "crumbs": [
+      "Exploring Latin American Restaurants with the Yelp Fusion API"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#extracting-key-fields",
+    "href": "projects/data-acquisition.html#extracting-key-fields",
+    "title": "Data Acquisition Project",
+    "section": "3. Extracting Key Fields",
+    "text": "3. Extracting Key Fields\nFrom each business result, I kept variables such as:\n\nname\nrating\nreview_count\nprice\ncategories\nlatitude, longitude\nlocation fields (city, zip code, etc.)",
+    "crumbs": [
+      "Exploring Latin American Restaurants with the Yelp Fusion API"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#storing-the-dataset",
+    "href": "projects/data-acquisition.html#storing-the-dataset",
+    "title": "Data Acquisition Project",
+    "section": "4. Storing the Dataset",
+    "text": "4. Storing the Dataset\nOnce extracted, the records were collected into a pandas DataFrame and saved as a CSV.",
+    "crumbs": [
+      "Exploring Latin American Restaurants with the Yelp Fusion API"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#summary-statistics",
+    "href": "projects/data-acquisition.html#summary-statistics",
+    "title": "Data Acquisition Project",
+    "section": "Summary Statistics",
+    "text": "Summary Statistics\n\nAverage rating: 4.07\nMedian review count: 110\nMost common price tier: “$$”\nRestaurant category with the largest count: Salvadoran",
+    "crumbs": [
+      "Exploring Latin American Restaurants with the Yelp Fusion API"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#interesting-eda-findings",
+    "href": "projects/data-acquisition.html#interesting-eda-findings",
+    "title": "Data Acquisition Project",
+    "section": "Interesting EDA Findings",
+    "text": "Interesting EDA Findings\n\n1. Ratings vs. Price Tier\nHigher‑priced restaurants did tend to have slightly higher average ratings, but the spread was wider, suggesting both excellent and mediocre high‑priced places.\n\n\n\nGraph dipicting a bar chart with 4 bars, one for each price category, and height coresponding with the average rating of each of the price groups.\n\n\n\n\n2. Review Count Distribution\nReview counts were extremely right‑skewed. A small number of restaurants had hundreds or thousands of reviews, while most had fewer than 50.\n\n\n\nDot plot depicting the distribution of review counts per restaurant. Heavily right skewed.",
+    "crumbs": [
+      "Exploring Latin American Restaurants with the Yelp Fusion API"
+    ]
   }
 ]
